@@ -1,0 +1,91 @@
+
+$type-acier: rgba(96, 162, 185, 0.8);
+$type-dragon: rgba(79, 96, 226, 0.8);
+$type-electrik: rgba(250, 193, 0, 0.8);
+$type-feu: rgba(231, 35, 36, 0.8);
+$type-insecte: rgba(146, 162, 18, 0.8);
+$type-plante: rgba(61, 162, 36, 0.8);
+$type-psy: rgba(239, 63, 122, 0.8);
+$type-sol: rgba(146, 80, 27, 0.8);
+$type-tenebre: rgba(79, 63, 61, 0.8);
+$type-combat: rgba(255, 129, 0, 0.8);
+$type-eau: rgba(36, 129, 239, 0.8);
+$type-fee: rgba(239, 113, 239, 0.8);
+$type-glace: rgba(61, 217, 255, 0.8);
+$type-normal: rgba(160, 162, 160, 0.8);
+$type-poison: rgba(146, 63, 204, 0.8);
+$type-roche: rgba(176, 171, 130, 0.8);
+$type-spectre: rgba(113, 63, 113, 0.8);
+$type-vol: rgba(130, 186, 239, 0.8);
+
+.type-acier {
+  background-color: $type-acier;
+}
+
+.type-dragon {
+  background-color: $type-dragon;
+}
+
+.type-electrik {
+  background-color: $type-electrik;
+}
+
+.type-feu {
+  background-color: $type-feu;
+}
+
+.type-insecte {
+  background-color: $type-insecte;
+}
+
+.type-plante {
+  background-color: $type-plante;
+}
+
+.type-psy {
+  background-color: $type-psy;
+}
+
+.type-sol {
+  background-color: $type-sol;
+}
+
+.type-tenebre {
+  background-color: $type-tenebre;
+}
+
+.type-combat {
+  background-color: $type-combat;
+}
+
+.type-eau {
+  background-color: $type-eau;
+}
+
+.type-fee {
+  background-color: $type-fee;
+}
+
+.type-glace {
+  background-color: $type-glace;
+}
+
+.type-normal {
+  background-color: $type-normal;
+}
+
+.type-poison {
+  background-color: $type-poison;
+}
+
+.type-roche {
+  background-color: $type-roche;
+}
+
+.type-spectre {
+  background-color: $type-spectre;
+}
+
+.type-vol {
+  background-color: $type-vol;
+}
