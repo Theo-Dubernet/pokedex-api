@@ -1,1 +1,5 @@
-@use './base/reset.scss';
+@use './base/_reset.scss';
+@use './pages/_accueil.scss';
+
+// Palette de couleur type
+@use './pokemon/color-type.scss';
