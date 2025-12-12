@@ -1,5 +1,7 @@
 @use './base/_reset.scss';
 @use './pages/_accueil.scss';
+@use './layout/header';
+@use './layout/footer';
 
 // Palette de couleur type
 @use './pokemon/color-type.scss';
