@@ -1,3 +1,5 @@
 .idea
 .vscode
-css/
+
+static/css/*.css
+static/css/*.css.map
