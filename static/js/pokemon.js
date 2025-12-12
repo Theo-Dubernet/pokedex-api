@@ -1,5 +1,5 @@
 const l_pokemon = [];
-const nb_pokemon_national_dex = 5;
+const nb_pokemon_national_dex = 50;
 const tbody = document.querySelector("tbody");
 
 async function getPokemonById(id) {
@@ -14,14 +14,11 @@ async function getPokemonById(id) {
 async function loadPokemon() {
   for (let i = 1; i <= nb_pokemon_national_dex; i++) {
     l_pokemon[i - 1] = await getPokemonById(i);
+    let html_extract = extractPokemonData(l_pokemon[i - 1]);
+    let html_tbody = createPokemonHTML(html_extract);
+    tbody.innerHTML += html_tbody;
   }
-  console.log(l_pokemon[0].name);
-  console.log(l_pokemon[0].types[0].type.name);
-  console.log(l_pokemon[0].cries.latest);
-  console.log(l_pokemon[0]);
-  console.log(l_pokemon[0].sprites.front_default);
 }
-loadPokemon();
 
 function extractPokemonData(pokemonData) {
   return {
@@ -34,7 +31,7 @@ function extractPokemonData(pokemonData) {
 }
 
 function createPokemonHTML(pokemon) {
-  return `
+   return `
     <tr>
         <td>${pokemon.id}</td>                    
         <td>${pokemon.nom}</td>                  
@@ -48,8 +45,4 @@ function createPokemonHTML(pokemon) {
           pokemon.cries
         }">Votre navigateur ne supporte pas l'audio.</audio></td>
     </tr>`;
-}
-for (let i = 0; i < nb_pokemon_national_dex; i++) {
-  let HTML = createPokemonHTML(extractPokemonData(l_pokemon[i]));
-  tbody.innerHTML += HTML;
 }
