@@ -1,5 +1,5 @@
 const l_pokemon = [];
-const nb_pokemon_national_dex = 50;
+const nb_pokemon_national_dex = 100;
 const tbody = document.querySelector("tbody");
 
 async function getPokemonById(id) {
@@ -36,7 +36,9 @@ function createPokemonHTML(pokemon) {
         <td>${pokemon.id}</td>                    
         <td>${pokemon.nom}</td>                  
         <td>
-            ${pokemon.type.map((type) => `<div>${type}</div>`).join("")}
+            <div id="types-container">
+                ${pokemon.type.map((type) => `<div class="type-${type} types">${type}</div>`).join("")}
+            </div>
         </td>
         <td><img src="${pokemon.photo}"           
                 alt="pokemon ${pokemon.id}"></td>
