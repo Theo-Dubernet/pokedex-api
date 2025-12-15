@@ -1,5 +1,6 @@
 const l_pokemon = [];
-const nb_pokemon_national_dex = 100;
+let pokemon_html_tbody = "";
+const nb_pokemon_national_dex = 1025;
 const tbody = document.querySelector("tbody");
 
 async function getPokemonById(id) {
@@ -16,8 +17,11 @@ async function loadPokemon() {
     l_pokemon[i - 1] = await getPokemonById(i);
     let html_extract = extractPokemonData(l_pokemon[i - 1]);
     let html_tbody = createPokemonHTML(html_extract);
-    tbody.innerHTML += html_tbody;
+    pokemon_html_tbody += html_tbody;
   }
+  tbody.innerHTML = pokemon_html_tbody;
+
+  return true;
 }
 
 function extractPokemonData(pokemonData) {
