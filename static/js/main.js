@@ -4,4 +4,5 @@ import './pokemon.js';
 * MAIN
 * */
 
-loadPokemon()
+loadPokemon();
+initSearch();

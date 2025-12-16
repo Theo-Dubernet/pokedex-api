@@ -1,5 +1,5 @@
 const l_pokemon = [];
-const nb_pokemon_national_dex = 5;
+const nb_pokemon_national_dex = 100;
 const tbody = document.querySelector("tbody");
 
 async function getPokemonById(id) {
@@ -53,7 +53,6 @@ function createPokemonHTML(pokemon) {
 }
 
 function displayPokemon(pokemonList) {
-  debugger;
   // Vider le tbody
   tbody.innerHTML = "";
   // Si aucun Pokémon trouvé, afficher un message
@@ -71,28 +70,22 @@ function displayPokemon(pokemonList) {
   console.log(pokemonList.length);
   // Afficher chaque Pokémon de la liste
   pokemonList.forEach((pokemon) => {
-    console.log(pokemon);
     const pokemonData = extractPokemonData(pokemon);
-    debugger;
     const html = createPokemonHTML(pokemonData);
     tbody.innerHTML += html;
   });
-
-  console.log(`✅ ${pokemonList.length} Pokémon affichés`);
 }
 
 // =====================================================
 // ✨ FONCTION DE RECHERCHE
 // =====================================================
 function searchPokemon(searchTerm) {
-  debugger;
   // Convertir en minuscules et supprimer les espaces
   const searchLower = searchTerm.toLowerCase().trim();
 
   // Si la recherche est vide, afficher tous les Pokémon
   if (searchLower === "") {
     displayPokemon(l_pokemon);
-    console.log("🔍 Recherche vide → Affichage de tous les Pokémon");
     return;
   }
 
@@ -102,17 +95,11 @@ function searchPokemon(searchTerm) {
     if (l_pokemon[i].name.includes(searchLower)) {
       console.log(l_pokemon[i].name + "filtré");
       filteredPokemon[i] = l_pokemon[i];
-      debugger;
     }
   }
-  debugger
 
   // Afficher les résultats
   displayPokemon(filteredPokemon);
-
-  console.log(
-    `🔍 Recherche: "${searchTerm}" → ${filteredPokemon.length} résultat(s)`
-  );
 }
 
 // =====================================================
@@ -126,21 +113,4 @@ function initSearch() {
   searchInput.addEventListener("input", (e) => {
     searchPokemon(e.target.value);
   });
-
-  // // Empêcher la soumission du formulaire (rechargement de la page)
-  // searchForm.addEventListener("submit", (e) => {
-  //   e.preventDefault();
-  //   searchPokemon(searchInput.value);
-  // });
-
-  console.log("✅ Recherche initialisée");
 }
-
-// =====================================================
-// LANCEMENT AU CHARGEMENT DE LA PAGE
-// =====================================================
-document.addEventListener("DOMContentLoaded", async function () {
-  // 1. Charge les Pokémon
-
-  initSearch(); // 2. Initialise la recherche
-});
