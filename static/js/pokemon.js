@@ -1,12 +1,11 @@
 const l_pokemon = [];
-const nb_pokemon_national_dex = 100;
+const nb_pokemon_national_dex = 5;
 const tbody = document.querySelector("tbody");
 
 async function getPokemonById(id) {
   return await fetch(`https://pokeapi.co/api/v2/pokemon/${id}`)
     .then((response) => response.json())
     .then((data) => {
-      console.log("Pokemon was load with numdex equals to: " + data.id);
       return data;
     });
 }
@@ -24,7 +23,7 @@ function extractPokemonData(pokemonData) {
   return {
     nom: pokemonData.name, // ✅ Nom
     id: pokemonData.id, // ✅ ID
-    type: pokemonData.types.map((t) => t.type.name), // ✅ Type(s)
+    types: pokemonData.types.map((t) => t.type.name),
     cries: pokemonData.cries.latest, // ✅ Cri
     photo: pokemonData.sprites.front_default, // ✅ Photo
   };
@@ -33,11 +32,11 @@ function extractPokemonData(pokemonData) {
 function createPokemonHTML(pokemon) {
   return `
     <tr>
-        <td>${pokemon.id}</td>                    
+        <td>${pokemon.id}</td>            
         <td>${pokemon.nom}</td>                  
         <td>
             <div id="types-container">
-                ${pokemon.type
+                ${pokemon.types
                   .map(
                     (type) => `<div class="type-${type} types">${type}</div>`
                   )
@@ -54,9 +53,9 @@ function createPokemonHTML(pokemon) {
 }
 
 function displayPokemon(pokemonList) {
+  debugger;
   // Vider le tbody
   tbody.innerHTML = "";
-
   // Si aucun Pokémon trouvé, afficher un message
   if (pokemonList.length === 0) {
     tbody.innerHTML = `
@@ -69,9 +68,13 @@ function displayPokemon(pokemonList) {
     return;
   }
 
+  console.log(pokemonList.length);
   // Afficher chaque Pokémon de la liste
   pokemonList.forEach((pokemon) => {
-    const html = createPokemonHTML(pokemon);
+    console.log(pokemon);
+    const pokemonData = extractPokemonData(pokemon);
+    debugger;
+    const html = createPokemonHTML(pokemonData);
     tbody.innerHTML += html;
   });
 
@@ -82,6 +85,7 @@ function displayPokemon(pokemonList) {
 // ✨ FONCTION DE RECHERCHE
 // =====================================================
 function searchPokemon(searchTerm) {
+  debugger;
   // Convertir en minuscules et supprimer les espaces
   const searchLower = searchTerm.toLowerCase().trim();
 
@@ -92,10 +96,16 @@ function searchPokemon(searchTerm) {
     return;
   }
 
-  // Filtrer les Pokémon par nom
-  const filteredPokemon = l_pokemon.filter((pokemon) => {
-    return pokemon.name.toLowerCase().includes(searchLower);
-  });
+  const filteredPokemon = [];
+
+  for (let i = 0; i < l_pokemon.length; i++) {
+    if (l_pokemon[i].name.includes(searchLower)) {
+      console.log(l_pokemon[i].name + "filtré");
+      filteredPokemon[i] = l_pokemon[i];
+      debugger;
+    }
+  }
+  debugger
 
   // Afficher les résultats
   displayPokemon(filteredPokemon);
@@ -115,14 +125,13 @@ function initSearch() {
   // Recherche en temps réel (à chaque caractère tapé)
   searchInput.addEventListener("input", (e) => {
     searchPokemon(e.target.value);
-    console.log(e.target.value + "tes bien dans seachInput");
   });
 
-  // Empêcher la soumission du formulaire (rechargement de la page)
-  searchForm.addEventListener("submit", (e) => {
-    e.preventDefault();
-    searchPokemon(searchInput.value);
-  });
+  // // Empêcher la soumission du formulaire (rechargement de la page)
+  // searchForm.addEventListener("submit", (e) => {
+  //   e.preventDefault();
+  //   searchPokemon(searchInput.value);
+  // });
 
   console.log("✅ Recherche initialisée");
 }
