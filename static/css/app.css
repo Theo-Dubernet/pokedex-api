@@ -1,0 +1,329 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  width: 100%;
+}
+
+#container-loading {
+  display: flex;
+  margin: 100px auto;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  row-gap: 10px;
+}
+
+table {
+  border-spacing: 0;
+  width: 60%;
+  border-collapse: collapse;
+  margin: 100px auto 0 auto;
+  box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+}
+table td:nth-child(1) {
+  width: 8%;
+}
+table td:nth-child(2) {
+  width: 20%;
+}
+
+th, td {
+  border: 1px solid #ccc;
+  text-align: center;
+}
+
+#types-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 10px;
+  padding: 10px;
+}
+#types-container .types {
+  color: white;
+  padding: 10px;
+  border-radius: 15px;
+  box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+}
+
+/* HTML: <div class="loader"></div> */
+.loader {
+  width: 50px;
+  aspect-ratio: 1;
+  border-radius: 50%;
+  border: 8px solid;
+  border-color: #000 rgba(0, 0, 0, 0);
+  animation: l1 1s infinite;
+}
+
+@keyframes l1 {
+  to {
+    transform: rotate(0.5turn);
+  }
+}
+.poke-header {
+  background: linear-gradient(180deg, rgb(241.1361256545, 105.9633507853, 103.3638743455), #ef5350);
+  border-bottom: 4px solid #222;
+  padding: 0.8rem 0;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+}
+.poke-header__container {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 0 1.2rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+}
+
+.poke-logo {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  text-decoration: none;
+  color: white;
+}
+.poke-logo h1 {
+  margin: 0;
+  font-size: 1.7rem;
+  font-weight: 800;
+  letter-spacing: 1px;
+  text-shadow: 2px 2px 0 black;
+}
+.poke-logo .pokeball {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  border: 4px solid #222;
+  background: white;
+  position: relative;
+}
+.poke-logo .pokeball::before {
+  content: "";
+  position: absolute;
+  top: -4px;
+  height: 50%;
+  width: 100%;
+  background: #ef5350;
+  border-bottom: 4px solid #222;
+  border-radius: 999px 999px 0 0;
+}
+.poke-logo .pokeball::after {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 14px;
+  height: 14px;
+  background: white;
+  border: 4px solid #222;
+  border-radius: 50%;
+}
+
+.poke-nav ul {
+  list-style: none;
+  display: flex;
+  gap: 1rem;
+  margin: 0;
+  padding: 0;
+}
+.poke-nav ul a {
+  display: flex;
+  align-items: center;
+  gap: 0.3rem;
+  background: #ffcb05;
+  padding: 0.35rem 0.7rem;
+  border-radius: 12px;
+  border: 3px solid #222;
+  font-weight: 700;
+  color: #222;
+  text-decoration: none;
+  box-shadow: 0 3px 0 #b38a00;
+  transition: 0.12s;
+}
+.poke-nav ul a:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 5px 0 #b38a00;
+}
+.poke-nav ul a:active {
+  transform: translateY(1px);
+  box-shadow: 0 1px 0 #b38a00;
+}
+
+.pokedex-icon {
+  width: 18px;
+  height: 22px;
+  border: 2px solid #222;
+  background: #ef5350;
+  border-radius: 4px;
+  display: inline-block;
+  position: relative;
+}
+.pokedex-icon::before {
+  content: "";
+  position: absolute;
+  top: 3px;
+  left: 3px;
+  width: 10px;
+  height: 7px;
+  background: #9bd4ff;
+  border: 2px solid #222;
+  border-radius: 2px;
+}
+.pokedex-icon::after {
+  content: "";
+  position: absolute;
+  bottom: 3px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 6px;
+  height: 6px;
+  border: 2px solid #222;
+  background: #ffcb05;
+  border-radius: 50%;
+}
+
+.poke-search {
+  display: flex;
+  gap: 0.4rem;
+}
+.poke-search input {
+  padding: 0.4rem 0.7rem;
+  border-radius: 12px;
+  border: 3px solid #222;
+  background: #fff;
+  font-weight: 600;
+  width: 190px;
+  outline: none;
+  box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.15);
+}
+.poke-search input:focus {
+  border-color: #3b4cca;
+  box-shadow: 0 0 10px rgba(59, 76, 202, 0.4);
+}
+.poke-search button {
+  padding: 0.4rem 0.7rem;
+  background: #3b4cca;
+  color: white;
+  border: 3px solid #222;
+  border-radius: 12px;
+  font-weight: 700;
+  cursor: pointer;
+  box-shadow: 0 3px 0 rgb(33.843373494, 44.6987951807, 125.156626506);
+  transition: 0.12s;
+}
+.poke-search button:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 5px 0 rgb(33.843373494, 44.6987951807, 125.156626506);
+}
+.poke-search button:active {
+  transform: translateY(1px);
+  box-shadow: 0 1px 0 rgb(33.843373494, 44.6987951807, 125.156626506);
+}
+
+.poke-footer__bottom-extra {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 1rem;
+  padding-top: 0.5rem;
+  border-top: 1px dashed #222;
+  font-size: 0.85rem;
+  color: #222;
+}
+.poke-footer__bottom-extra .poke-footer__logos {
+  display: flex;
+  gap: 0.6rem;
+}
+.poke-footer__bottom-extra .poke-footer__logos img {
+  height: 28px;
+  width: auto;
+  border: 1px solid #222;
+  border-radius: 6px;
+  transition: transform 0.12s;
+}
+.poke-footer__bottom-extra .poke-footer__logos img:hover {
+  transform: scale(1.05);
+}
+.poke-footer__bottom-extra .poke-footer__last-modified {
+  font-style: italic;
+}
+
+.type-steel {
+  background-color: rgba(96, 162, 185, 0.8);
+}
+
+.type-dragon {
+  background-color: rgba(79, 96, 226, 0.8);
+}
+
+.type-electric {
+  background-color: rgba(250, 193, 0, 0.8);
+}
+
+.type-fire {
+  background-color: rgba(231, 35, 36, 0.8);
+}
+
+.type-bug {
+  background-color: rgba(146, 162, 18, 0.8);
+}
+
+.type-grass {
+  background-color: rgba(61, 162, 36, 0.8);
+}
+
+.type-psychic {
+  background-color: rgba(239, 63, 122, 0.8);
+}
+
+.type-ground {
+  background-color: rgba(146, 80, 27, 0.8);
+}
+
+.type-dark {
+  background-color: rgba(79, 63, 61, 0.8);
+}
+
+.type-fighting {
+  background-color: rgba(255, 129, 0, 0.8);
+}
+
+.type-water {
+  background-color: rgba(36, 129, 239, 0.8);
+}
+
+.type-fairy {
+  background-color: rgba(239, 113, 239, 0.8);
+}
+
+.type-ice {
+  background-color: rgba(61, 217, 255, 0.8);
+}
+
+.type-normal {
+  background-color: rgba(160, 162, 160, 0.8);
+}
+
+.type-poison {
+  background-color: rgba(146, 63, 204, 0.8);
+}
+
+.type-rock {
+  background-color: rgba(176, 171, 130, 0.8);
+}
+
+.type-ghost {
+  background-color: rgba(113, 63, 113, 0.8);
+}
+
+.type-flying {
+  background-color: rgba(130, 186, 239, 0.8);
+}
+
+/*# sourceMappingURL=app.css.map */
