@@ -1,0 +1,12 @@
+version: "3.9"
+
+services:
+  apache:
+    build:
+      context: .
+      args:
+        GITHUB_PROJECT: ${GITHUB_PROJECT}
+    container_name: pokedex-server
+    ports:
+      - "9999:80"
+    restart: unless-stopped
