@@ -5,3 +5,4 @@ import './pokemon.js';
 * */
 
 loadPokemon();
+initSearch();
