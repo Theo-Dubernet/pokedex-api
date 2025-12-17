@@ -1,6 +1,6 @@
 const l_pokemon = [];
 let pokemon_html_tbody = "";
-const nb_pokemon_national_dex = 151;
+const nb_pokemon_national_dex = 1025;
 const tbody = document.querySelector("tbody");
 
 /* Container loading */
